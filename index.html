@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="SPACE-IT | Tabuleiro colecionável com lore cinematográfico, miniaturas premium e tabuleiros modulados">
+    <title>SPACE-IT | Conquiste as Colônias do Futuro</title>
+
+    <!-- MegaOne Assets -->
+    <link href="dark-creative/img/favicon.ico" rel="icon">
+    <link rel="stylesheet" href="vendor/css/bundle.min.css">
+    <link href="vendor/css/wow.css" rel="stylesheet">
+    <link href="vendor/css/LineIcons.min.css" rel="stylesheet">
+    <link href="vendor/css/jquery.fancybox.min.css" rel="stylesheet">
+    <link href="vendor/css/owl.carousel.min.css" rel="stylesheet">
+    <link href="vendor/css/cubeportfolio.min.css" rel="stylesheet">
+    <link href="dark-creative/css/line-awesome.min.css" rel="stylesheet">
+    <link href="dark-creative/css/style.css" rel="stylesheet">
+    <link href="dark-creative/css/custom.css" rel="stylesheet">
+
+    <!-- CUSTOM CSS -->
+    <style>
+        #particles { position:fixed; top:0; left:0; width:100%; height:100%; z-index:1; pointer-events:none; }
+        .gradient-text { background: linear-gradient(135deg, #8b5cf6, #06b6d4); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+        .hero-image { animation: float-hero 6s ease-in-out infinite; }
+        @keyframes float-hero { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-25px)} }
+
+        /* Flip Cards */
+        .flip-card { perspective:1500px; height:460px; cursor:pointer; }
+        .flip-card-inner { transition:transform 0.8s cubic-bezier(0.23,1,0.32,1); transform-style:preserve-3d; border-radius:24px; box-shadow:0 10px 40px rgba(0,0,0,0.4); }
+        .flip-card.flipped .flip-card-inner { transform:rotateY(180deg); }
+        .flip-card-front, .flip-card-back { position:absolute; width:100%; height:100%; backface-visibility:hidden; border-radius:24px; overflow:hidden; }
+        .flip-card-back { transform:rotateY(180deg); background:linear-gradient(135deg,#1a1a2e,#16213e); border:1px solid #8b5cf6; display:flex; align-items:center; justify-content:center; padding:32px; color:#fff; }
+        
+        /* Price Tag */
+        .price-tag {
+            background:linear-gradient(135deg,#8b5cf6,#06b6d4);
+            color:#fff; font-size:1.35rem; font-weight:800; padding:12px 32px;
+            border-radius:9999px; box-shadow:0 0 30px rgba(139,92,246,0.6);
+            display:inline-flex; align-items:center; gap:8px;
+        }
+        .hope-tag { padding:4px 14px; border-radius:9999px; font-size:0.8rem; font-weight:700; }
+        .hope-dourada { background:#facc15; color:#000; }
+        .hope-esverdeada { background:#22c55e; color:#000; }
+        .hope-preto { background:#64748b; color:#fff; }
+        .hope-prateada { background:#e2e8f0; color:#000; }
+    </style>
+</head>
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
+
+<!-- PARTICLES -->
+<canvas id="particles"></canvas>
+
+<!-- HEADER -->
+<header id="home">
+    <div class="top-banner bg-trans-color transparent-banner">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-4 col-lg-4 d-flex align-items-center">
+                    <a href="javascript:void(0)" class="sidemenu_btn active link sidemenu_toggle">
+                        <span></span><span></span><span></span>
+                    </a>
+                </div>
+                <div class="col-sm-12 col-md-4 col-lg-4 d-flex justify-content-center">
+                    <div class="logo-center">
+                        <a href="#"><img src="dark-creative/img/logo.png" alt="SPACE-IT" style="height:70px;"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <nav class="navbar navbar-top-default navbar-expand-lg navbar-simple nav-line">
+        <div class="container">
+            <div class="collapse navbar-collapse" id="Seckler">
+                <div class="navbar-nav ml-auto mr-auto">
+                    <a class="nav-link scroll line" href="#universo">Universo</a>
+                    <a class="nav-link scroll line" href="#colonizadores">Colonizadores</a>
+                    <a class="nav-link scroll line" href="#tabuleiros">Tabuleiros</a>
+                    <a class="nav-link scroll line" href="#packs">Packs Masters</a>
+                    <a class="nav-link scroll line" href="#contato">Contato</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<!-- HERO -->
+<section class="p-0 banner" id="home" style="min-height:100vh;display:flex;align-items:center;position:relative;z-index:2;">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <div class="hero-content">
+                    <div class="hero-badge"><span class="pulse"></span> Jogo Colecionável + Experiência Digital</div>
+                    <h1 class="main-font font-weight-bold text-white">SPACE-IT: o tabuleiro que une <span class="gradient-text">lore cinematográfico</span>, colecionáveis premium.</h1>
+                    <p class="text-white">Conquiste a esperança perdida das colônias, com cartas, veículos espaciais e tabuleiros modulados.</p>
+                    <a href="#packs" class="btn btn-medium btn-rounded btn-yellow mt-3">Ver Packs Masters</a>
+                    <a href="#universo" class="btn btn-medium btn-rounded btn-transparent mt-3 ml-3">Conhecer o Universo</a>
+                </div>
+            </div>
+            <div class="col-lg-6 text-center">
+                <img src="assets/img/space-it-4.png" alt="SPACE-IT" class="hero-image" style="max-width:100%;">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- UNIVERSO - FLIP CARDS -->
+<section id="universo" class="about overflow-hidden py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <span class="section-tag">HOPE</span>
+            <h2 class="heading">As quatro últimas esperanças da civilização</h2>
+            <p>O colapso das estrelas criou quatro Masters lendários.</p>
+        </div>
+        <div class="row">
+            <!-- Aurum Magnus -->
+            <div class="col-lg-3 col-md-6 mb-4 flip-card" onclick="this.classList.toggle('flipped')">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="assets/img/apresenta-aurum.png" alt="Aurum Magnus" style="width:100%;height:100%;object-fit:cover;">
+                        <div class="card-overlay"><h3>Aurum Magnus</h3><span class="hope-tag hope-dourada">Hope Dourada</span></div>
+                    </div>
+                    <div class="flip-card-back">
+                        <div class="back-content">
+                            <h3>Aurum Magnus</h3>
+                            <p>Quando a última estrela morreu, ele nasceu. O ouro que ainda brilha quando tudo escurece.</p>
+                            <ul><li>Nascimento da Luz</li><li>Primeira Hope Dourada</li><li>Guardião Eterno</li></ul>
+                            <button class="btn btn-secondary btn-small" onclick="event.stopImmediatePropagation();this.closest('.flip-card').classList.remove('flipped')">VOLTAR</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Agente Sete -->
+            <div class="col-lg-3 col-md-6 mb-4 flip-card" onclick="this.classList.toggle('flipped')">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="assets/img/agente-sete-4.png" alt="Agente Sete" style="width:100%;height:100%;object-fit:cover;">
+                        <div class="card-overlay"><h3>Agente Sete</h3><span class="hope-tag hope-esverdeada">Hope Esverdeada</span></div>
+                    </div>
+                    <div class="flip-card-back">
+                        <div class="back-content">
+                            <h3>Agente Sete</h3>
+                            <p>Antigo Orquestrador Openclaw. A IA que escolheu a vida.</p>
+                            <ul><li>Rede de suprimentos viva</li><li>Frota Verde</li><li>Orquestrador de Futuros</li></ul>
+                            <button class="btn btn-secondary btn-small" onclick="event.stopImmediatePropagation();this.closest('.flip-card').classList.remove('flipped')">VOLTAR</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Brian T. -->
+            <div class="col-lg-3 col-md-6 mb-4 flip-card" onclick="this.classList.toggle('flipped')">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="assets/img/apresenta-brian.png" alt="Brian T." style="width:100%;height:100%;object-fit:cover;">
+                        <div class="card-overlay"><h3>Brian T.</h3><span class="hope-tag hope-preto">Hope Preto Fosco</span></div>
+                    </div>
+                    <div class="flip-card-back">
+                        <div class="back-content">
+                            <h3>Brian T.</h3>
+                            <p>O homem que morreu duas vezes e voltou com a escuridão.</p>
+                            <ul><li>Reino das Sombras</li><li>Estratégia do Vazio</li><li>Obscurus Rex</li></ul>
+                            <button class="btn btn-secondary btn-small" onclick="event.stopImmediatePropagation();this.closest('.flip-card').classList.remove('flipped')">VOLTAR</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Major Capyborg -->
+            <div class="col-lg-3 col-md-6 mb-4 flip-card" onclick="this.classList.toggle('flipped')">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="assets/img/apresenta-capyborg.png" alt="Major Capyborg" style="width:100%;height:100%;object-fit:cover;">
+                        <div class="card-overlay"><h3>Major Capyborg</h3><span class="hope-tag hope-prateada">Hope Prateada</span></div>
+                    </div>
+                    <div class="flip-card-back">
+                        <div class="back-content">
+                            <h3>Major Capyborg</h3>
+                            <p>68% ciborgue, coração de soldado.</p>
+                            <ul><li>Rebelião Silenciosa</li><li>Forças de Resgate</li><li>Líder Inquebrável</li></ul>
+                            <button class="btn btn-secondary btn-small" onclick="event.stopImmediatePropagation();this.closest('.flip-card').classList.remove('flipped')">VOLTAR</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- COLONIZADORES -->
+<section id="colonizadores" class="portfolio bg-black py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <span class="section-tag">COLONIZADORES</span>
+            <h2 class="heading">Miniaturas e cartas que carregam a alma do jogo</h2>
+        </div>
+        <div class="row">
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="portfolio-card">
+                    <img src="assets/img/space-it-colonizadores/hope black.png" alt="Hope Black" style="width:100%;height:250px;object-fit:cover;">
+                    <div class="portfolio-info p-4"><span class="portfolio-tag">Hope Black</span><h3>Brian T.</h3><p>Estratégia das sombras</p></div>
+                </div>
+            </div>
+            <!-- Repita os outros 3 cards da mesma forma -->
+        </div>
+    </div>
+</section>
+
+<!-- TABULEIROS, PACKS, CONTATO e FOOTER seguem o mesmo padrão do template MegaOne -->
+<!-- (se precisar de mais ajustes, é só falar) -->
+
+<!-- Scripts -->
+<script src="vendor/js/bundle.min.js"></script>
+<script src="dark-creative/js/script.js"></script>
+
+<!-- Particles + Flip -->
+<script>
+    // Particles (simples e funcional)
+    const canvas = document.getElementById('particles');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+    function resizeCanvas() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+    class Particle { constructor(){this.reset();} reset(){this.x=Math.random()*canvas.width;this.y=Math.random()*canvas.height;this.size=Math.random()*2+0.5;this.speedX=(Math.random()-0.5)*0.5;this.speedY=(Math.random()-0.5)*0.5;} update(){this.x+=this.speedX;this.y+=this.speedY;} draw(){ctx.beginPath();ctx.arc(this.x,this.y,this.size,0,Math.PI*2);ctx.fillStyle='rgba(139,92,246,0.6)';ctx.fill();} }
+    function init(){particles=[];for(let i=0;i<80;i++)particles.push(new Particle());}
+    function animate(){ctx.clearRect(0,0,canvas.width,canvas.height);particles.forEach(p=>{p.update();p.draw();});requestAnimationFrame(animate);}
+    resizeCanvas(); init(); animate(); window.addEventListener('resize',()=>{resizeCanvas();init();});
+    console.log('%c🚀 SPACE-IT MegaOne Dark Creative carregado!', 'color:#8b5cf6;font-size:16px;font-weight:bold');
+</script>
+</body>
+</html>

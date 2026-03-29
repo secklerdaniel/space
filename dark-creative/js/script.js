@@ -8,15 +8,22 @@ $(window).on("load", function () {
     $('.side-menu').removeClass('hidden');
 
     const video = document.getElementById('trailerVideo');
+const btn = document.getElementById('unmuteBtn');
 
 if (video) {
-    video.addEventListener('canplay', function () {
-        setTimeout(function () {
-            $('.loader').fadeOut(600);
-        }, 800); // pequeno delay pra suavidade
+
+    video.addEventListener('canplay', () => {
+
+        // só fecha automaticamente se NÃO tiver botão de som
+        if (!btn) {
+            setTimeout(() => {
+                $('.loader').fadeOut(600);
+            }, 2000);
+        }
+
     });
+
 }
-});
 
 /* ===================================
      Side Menu

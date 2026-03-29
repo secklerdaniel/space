@@ -7,9 +7,15 @@ $(window).on("load", function () {
  ====================================== */
     $('.side-menu').removeClass('hidden');
 
-    setTimeout(function(){
-        $('.loader').fadeOut();
-    }, 1000);
+    const video = document.getElementById('trailerVideo');
+
+if (video) {
+    video.addEventListener('canplay', function () {
+        setTimeout(function () {
+            $('.loader').fadeOut(600);
+        }, 800); // pequeno delay pra suavidade
+    });
+}
 });
 
 /* ===================================

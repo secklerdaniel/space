@@ -104,6 +104,22 @@
         🔊 Som
     </button>
 
+                 <button id="skipIntroBtn" style="
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    z-index: 10;
+    padding: 8px 14px;
+    border: none;
+    border-radius: 8px;
+    background: rgba(0,0,0,0.7);
+    color: #fff;
+    cursor: pointer;
+    font-size: 14px;
+">
+    ⏭ Pular Intro
+</button>
+
                 </div>
 
             </div>
@@ -930,31 +946,39 @@
 <script>
     const video = document.getElementById('trailerVideo');
     const poster = document.getElementById('videoPoster');
-    const btn = document.getElementById('unmuteBtn');
+    const btnSound = document.getElementById('unmuteBtn');
+    const btnSkip = document.getElementById('skipIntroBtn');
 
     if (video) {
 
-        // Mostra o vídeo
+        // Mostrar vídeo quando pronto
         video.addEventListener('canplay', () => {
             if (poster) poster.style.display = 'none';
             video.style.opacity = '1';
             video.style.filter = 'blur(0px)';
         });
 
-        // Clique ativa som e reinicia
-        if (btn) {
-            btn.addEventListener('click', () => {
+        // Ativar som
+        if (btnSound) {
+            btnSound.addEventListener('click', () => {
                 video.muted = false;
                 video.currentTime = 0;
                 video.play();
-                btn.style.display = 'none';
+                btnSound.style.display = 'none';
             });
         }
 
-        // QUANDO TERMINAR → fecha loader
+        // Quando terminar → fecha loader
         video.addEventListener('ended', () => {
             $('.loader').fadeOut(600);
         });
+
+        // Pular intro
+        if (btnSkip) {
+            btnSkip.addEventListener('click', () => {
+                $('.loader').fadeOut(600);
+            });
+        }
 
     }
 </script>

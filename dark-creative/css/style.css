@@ -2798,3 +2798,32 @@ figure.about-image.hover .curl {
         font-size: 26px;
     }
 }
+
+/* =========================
+   FIX MOBILE SPACE-IT
+========================= */
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+@media (max-width: 768px) {
+
+    .logo-center {
+        left: 0 !important;
+        top: 0 !important;
+        text-align: center;
+    }
+
+    .slider-area {
+        height: auto !important;
+        min-height: 100vh;
+        padding: 100px 0;
+    }
+
+    .col-lg-6 {
+        margin-bottom: 30px;
+    }
+
+}

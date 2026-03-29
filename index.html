@@ -50,28 +50,20 @@
 <div class="loader">
     <div class="container h-100">
 
-        <div class="d-flex justify-content-center align-items-center text-center" style="height:100vh; flex-direction: column; gap: 20px;">
+        <div class="d-flex justify-content-center align-items-center" style="height:100vh;">
 
-            <!-- LOGO -->
-            <img id="videoPoster"
-                src="dark-creative/assets/img/space-it-logo.png"
-                style="
-                    max-height:250px;
-                    width:auto;
-                    margin-bottom:20px;
-                    transition: opacity 0.8s ease, transform 0.8s ease;
-                ">
-
-            <!-- VÍDEO -->
+            <!-- WRAPPER -->
             <div style="
                 width: 100%;
                 max-width: 360px;
                 aspect-ratio: 9 / 16;
+                position: relative;
                 overflow: hidden;
                 border-radius: 12px;
-                position: relative;
+                box-shadow: 0 20px 60px rgba(0,0,0,0.6);
             ">
 
+                <!-- 🎥 VÍDEO -->
                 <video 
                     id="trailerVideo"
                     autoplay 
@@ -87,43 +79,62 @@
                         transition: opacity 1s ease, transform 1s ease;
                     "
                 >
-                    <source src="dark-creative/assets/video/capita_mercenario_aprendiz.mp4" type="video/mp4">
+                    <source src="dark-creative/assets/video/capita_mercenario.mp4" type="video/mp4">
                 </video>
 
-                <!-- BOTÃO SOM -->
+                <!-- 🌑 OVERLAY ESCURO -->
+                <div id="videoOverlay" style="
+                    position: absolute;
+                    inset: 0;
+                    background: rgba(0,0,0,0.6);
+                    transition: opacity 1s ease;
+                "></div>
+
+                <!-- 🚀 LOGO SOBRE O VÍDEO -->
+                <img id="videoPoster"
+                    src="dark-creative/assets/img/space-it-logo.png"
+                    style="
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        max-width: 80%;
+                        opacity: 1;
+                        transition: opacity 1s ease, transform 1s ease;
+                        z-index: 5;
+                    ">
+
+                <!-- 🔊 SOM -->
                 <button id="unmuteBtn" style="
                     position: absolute;
                     bottom: 10px;
                     right: 10px;
                     z-index: 10;
-                    padding: 8px 12px;
-                    border: none;
-                    border-radius: 8px;
+                    padding: 6px 10px;
                     background: rgba(0,0,0,0.7);
                     color: #fff;
-                    cursor: pointer;
+                    border: none;
+                    border-radius: 6px;
                 ">🔊</button>
 
-                <!-- SKIP -->
+                <!-- ⏭ SKIP -->
                 <button id="skipIntroBtn" style="
                     position: absolute;
                     bottom: 10px;
                     left: 10px;
                     z-index: 10;
-                    padding: 8px 14px;
-                    border: none;
-                    border-radius: 8px;
+                    padding: 6px 10px;
                     background: rgba(0,0,0,0.7);
                     color: #fff;
-                    cursor: pointer;
-                ">⏭ Pular</button>
+                    border: none;
+                    border-radius: 6px;
+                ">⏭</button>
 
             </div>
 
         </div>
     </div>
-</div>
-<!-- Header -->
+</div><!-- Header -->
 <header id="home">
     <div class="top-banner bg-trans-color transparent-banner">
         <div class="container-fluid">
@@ -940,26 +951,25 @@
 
 <script>
     const video = document.getElementById('trailerVideo');
-    const poster = document.getElementById('videoPoster');
+    const logo = document.getElementById('videoPoster');
+    const overlay = document.getElementById('videoOverlay');
     const btnSound = document.getElementById('unmuteBtn');
     const btnSkip = document.getElementById('skipIntroBtn');
 
-    if (video && poster) {
+    if (video) {
 
-        // 🎬 Sequência: logo → vídeo
         video.addEventListener('canplay', () => {
 
-            // segura o logo por 1.5s
+            // entra o vídeo
+            video.style.opacity = '1';
+            video.style.transform = 'scale(1)';
+
+            // depois de 1.5s começa a transição
             setTimeout(() => {
+                logo.style.opacity = '0';
+                logo.style.transform = 'translate(-50%, -60%)';
 
-                // some logo
-                poster.style.opacity = '0';
-                poster.style.transform = 'translateY(-20px)';
-
-                // mostra vídeo
-                video.style.opacity = '1';
-                video.style.transform = 'scale(1)';
-
+                overlay.style.opacity = '0';
             }, 1500);
         });
 
@@ -982,14 +992,12 @@
             });
         }
 
-        // 🎯 Final do vídeo
+        // 🎯 Final
         video.addEventListener('ended', () => {
             $('.loader').fadeOut(600);
         });
-
     }
 </script>
-
 </body>
 </html>
 

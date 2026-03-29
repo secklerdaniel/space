@@ -72,8 +72,7 @@
                         id="trailerVideo"
                         autoplay 
                         muted 
-                        playsinline 
-                        loop 
+                        playsinline
                         preload="auto"
                         style="
                             width: 100%;
@@ -935,25 +934,28 @@
 
     if (video) {
 
-        // Quando o vídeo estiver pronto
+        // Mostra o vídeo
         video.addEventListener('canplay', () => {
             if (poster) poster.style.display = 'none';
             video.style.opacity = '1';
             video.style.filter = 'blur(0px)';
         });
 
-        // Ativar som no clique
+        // Clique ativa som e reinicia
         if (btn) {
             btn.addEventListener('click', () => {
                 video.muted = false;
                 video.currentTime = 0;
-                video.play().then(() => {
-                    btn.style.display = 'none';
-                }).catch(err => {
-                    console.log("Erro ao ativar som:", err);
-                });
+                video.play();
+                btn.style.display = 'none';
             });
         }
+
+        // QUANDO TERMINAR → fecha loader
+        video.addEventListener('ended', () => {
+            $('.loader').fadeOut(600);
+        });
+
     }
 </script>
 

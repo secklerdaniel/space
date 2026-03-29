@@ -48,26 +48,25 @@
 
 <!-- Loader -->
 <div class="loader">
-    <div class="container">
-        <div class="row justify-content-center align-items-center" style="height:100vh;">
-            
-            <div class="text-center" style="width:100%;">
+    <div class="container h-100">
 
-                <!-- Poster -->
-                <img id="videoPoster"
-                    src="dark-creative/assets/img/masters-1.png"
-                    style="max-height:350px; width:auto;">
+        <div class="d-flex justify-content-center align-items-center text-center" style="height:100vh; flex-direction: column;">
 
-                <!-- Wrapper do vídeo -->
-                <div style="
-                    width: 100%;
-                    max-width: 420px;
-                    aspect-ratio: 9 / 16;
-                    margin: 0 auto;
-                    overflow: hidden;
-                    border-radius: 12px;
-                    position: relative; /* ESSENCIAL */
-                ">
+            <!-- Poster -->
+            <img id="videoPoster"
+                src="dark-creative/assets/img/space-it-logo.png"
+                style="max-height:350px; width:auto; margin-bottom:20px;">
+
+            <!-- Wrapper do vídeo -->
+            <div style="
+                width: 100%;
+                max-width: 420px;
+                aspect-ratio: 9 / 16;
+                margin: 0 auto;
+                overflow: hidden;
+                border-radius: 12px;
+                position: relative;
+            ">
                     <video 
                         id="trailerVideo"
                         autoplay 
@@ -976,8 +975,12 @@
         // Pular intro
         if (btnSkip) {
             btnSkip.addEventListener('click', () => {
-                $('.loader').fadeOut(600);
-            });
+    video.pause();        // para o vídeo
+    video.currentTime = 0; // reseta (opcional)
+    video.muted = true;
+
+    $('.loader').fadeOut(600);
+});
         }
 
     }

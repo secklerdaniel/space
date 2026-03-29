@@ -3,10 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="SPACE-IT | Tabuleiro colecionável com lore cinematográfico, miniaturas premium e tabuleiros modulados">
+    <meta name="description" content="SPACE-IT | Jogo colecionável com lore cinematográfico, miniaturas premium e tabuleiros modulares">
     <title>SPACE-IT | Conquiste as Colônias do Futuro</title>
-
-    <!-- MegaOne Assets -->
     <link href="dark-creative/img/favicon.ico" rel="icon">
     <link rel="stylesheet" href="vendor/css/bundle.min.css">
     <link href="vendor/css/wow.css" rel="stylesheet">
@@ -17,41 +15,48 @@
     <link href="dark-creative/css/line-awesome.min.css" rel="stylesheet">
     <link href="dark-creative/css/style.css" rel="stylesheet">
     <link href="dark-creative/css/custom.css" rel="stylesheet">
-
-    <!-- CUSTOM CSS -->
     <style>
-        #particles { position:fixed; top:0; left:0; width:100%; height:100%; z-index:1; pointer-events:none; }
-        .gradient-text { background: linear-gradient(135deg, #8b5cf6, #06b6d4); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
-        .hero-image { animation: float-hero 6s ease-in-out infinite; }
-        @keyframes float-hero { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-25px)} }
-
-        /* Flip Cards */
-        .flip-card { perspective:1500px; height:460px; cursor:pointer; }
-        .flip-card-inner { transition:transform 0.8s cubic-bezier(0.23,1,0.32,1); transform-style:preserve-3d; border-radius:24px; box-shadow:0 10px 40px rgba(0,0,0,0.4); }
-        .flip-card.flipped .flip-card-inner { transform:rotateY(180deg); }
-        .flip-card-front, .flip-card-back { position:absolute; width:100%; height:100%; backface-visibility:hidden; border-radius:24px; overflow:hidden; }
-        .flip-card-back { transform:rotateY(180deg); background:linear-gradient(135deg,#1a1a2e,#16213e); border:1px solid #8b5cf6; display:flex; align-items:center; justify-content:center; padding:32px; color:#fff; }
-        
-        /* Price Tag */
-        .price-tag {
-            background:linear-gradient(135deg,#8b5cf6,#06b6d4);
-            color:#fff; font-size:1.35rem; font-weight:800; padding:12px 32px;
-            border-radius:9999px; box-shadow:0 0 30px rgba(139,92,246,0.6);
-            display:inline-flex; align-items:center; gap:8px;
-        }
-        .hope-tag { padding:4px 14px; border-radius:9999px; font-size:0.8rem; font-weight:700; }
-        .hope-dourada { background:#facc15; color:#000; }
-        .hope-esverdeada { background:#22c55e; color:#000; }
-        .hope-preto { background:#64748b; color:#fff; }
-        .hope-prateada { background:#e2e8f0; color:#000; }
+        .gradient-text { background: linear-gradient(135deg, #facc15, #f59e0b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hope-dourada { color: #facc15; }
+        .hope-esverdeada { color: #22c55e; }
+        .hope-preto { color: #94a3b8; }
+        .hope-prateada { color: #e2e8f0; }
+        .flip-card { perspective: 1500px; height: 480px; cursor: pointer; }
+        .flip-card-inner { position: relative; width: 100%; height: 100%; transition: transform 0.8s; transform-style: preserve-3d; }
+        .flip-card:hover .flip-card-inner { transform: rotateY(180deg); }
+        .flip-card-front, .flip-card-back { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; border-radius: 16px; overflow: hidden; }
+        .flip-card-back { transform: rotateY(180deg); background: linear-gradient(135deg, #1a1a2e, #16213e); border: 2px solid #facc15; padding: 30px; display: flex; flex-direction: column; justify-content: center; }
+        .flip-card-back h3 { color: #facc15; margin-bottom: 15px; }
+        .flip-card-back ul { list-style: none; padding: 0; }
+        .flip-card-back ul li { color: #fff; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .flip-card-back ul li:before { content: "◆"; color: #facc15; margin-right: 10px; }
+        .price-tag { background: linear-gradient(135deg, #facc15, #f59e0b); color: #000; padding: 8px 20px; border-radius: 50px; font-weight: 700; display: inline-block; margin: 15px 0; }
+        .pack-card { background: #111; border-radius: 20px; overflow: hidden; transition: all 0.3s; border: 1px solid #222; }
+        .pack-card:hover { transform: translateY(-10px); border-color: #facc15; box-shadow: 0 20px 40px rgba(250, 204, 21, 0.2); }
+        .pack-card img { width: 100%; height: 280px; object-fit: cover; }
+        .pack-card .content { padding: 25px; }
+        .pack-card h4 { color: #fff; font-size: 1.3rem; margin-bottom: 15px; }
+        .pack-card ul { list-style: none; padding: 0; margin-bottom: 20px; }
+        .pack-card ul li { color: #aaa; padding: 6px 0; font-size: 0.9rem; }
+        .pack-card ul li:before { content: "✓"; color: #22c55e; margin-right: 8px; }
+        .team-image img { width: 100%; height: 350px; object-fit: cover; }
+        .cbp-item img { width: 100%; height: 100%; object-fit: cover; }
     </style>
 </head>
 <body data-spy="scroll" data-target=".navbar" data-offset="50">
 
-<!-- PARTICLES -->
-<canvas id="particles"></canvas>
+<!-- Loader -->
+<div class="loader">
+    <div class="container">
+        <div class="row justify-content-center align-items-center" style="height:100vh;">
+            <div class="text-center">
+                <img src="dark-creative/assets/img/space-it-logo.png" alt="SPACE-IT" style="height:80px; animation: pulse 1.5s infinite;">
+            </div>
+        </div>
+    </div>
+</div>
 
-<!-- HEADER -->
+<!-- Header -->
 <header id="home">
     <div class="top-banner bg-trans-color transparent-banner">
         <div class="container-fluid">
@@ -63,7 +68,13 @@
                 </div>
                 <div class="col-sm-12 col-md-4 col-lg-4 d-flex justify-content-center">
                     <div class="logo-center">
-                        <a href="#"><img src="dark-creative/img/logo.png" alt="SPACE-IT" style="height:70px;"></a>
+                        <a href="#"><img src="dark-creative/assets/img/space-it-logo.png" alt="SPACE-IT" style="height:70px;"></a>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-4 col-lg-4 text-right">
+                    <div class="banner-icons mt-2 mr-2">
+                        <a href="#"><i class="lab la-instagram"></i></a>
+                        <a href="https://wa.me/5554981432889"><i class="lab la-whatsapp"></i></a>
                     </div>
                 </div>
             </div>
@@ -71,112 +82,172 @@
     </div>
     <nav class="navbar navbar-top-default navbar-expand-lg navbar-simple nav-line">
         <div class="container">
-            <div class="collapse navbar-collapse" id="Seckler">
+            <div class="collapse navbar-collapse" id="spaceNav">
                 <div class="navbar-nav ml-auto mr-auto">
+                    <a class="nav-link scroll line" href="#home">Home</a>
                     <a class="nav-link scroll line" href="#universo">Universo</a>
                     <a class="nav-link scroll line" href="#colonizadores">Colonizadores</a>
                     <a class="nav-link scroll line" href="#tabuleiros">Tabuleiros</a>
-                    <a class="nav-link scroll line" href="#packs">Packs Masters</a>
+                    <a class="nav-link scroll line" href="#packs">Packs</a>
                     <a class="nav-link scroll line" href="#contato">Contato</a>
                 </div>
             </div>
         </div>
     </nav>
+    <!-- Side Nav -->
+    <div class="side-menu left hidden">
+        <div class="quarter-circle btn_sideNavClose">
+            <div class="menu_bars2 active link">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="inner-wrapper">
+            <nav class="side-nav w-100">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link scroll" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link scroll" href="#universo">Universo</a></li>
+                    <li class="nav-item"><a class="nav-link scroll" href="#colonizadores">Colonizadores</a></li>
+                    <li class="nav-item"><a class="nav-link scroll" href="#tabuleiros">Tabuleiros</a></li>
+                    <li class="nav-item"><a class="nav-link scroll" href="#packs">Packs</a></li>
+                    <li class="nav-item"><a class="nav-link scroll" href="#contato">Contato</a></li>
+                </ul>
+            </nav>
+            <div class="side-footer w-100">
+                <p class="text-white">&copy; 2026 SPACE-IT</p>
+            </div>
+        </div>
+    </div>
+    <a id="close_side_menu" href="javascript:void(0);"></a>
 </header>
 
-<!-- HERO -->
-<section class="p-0 banner" id="home" style="min-height:100vh;display:flex;align-items:center;position:relative;z-index:2;">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-6">
-                <div class="hero-content">
-                    <div class="hero-badge"><span class="pulse"></span> Jogo Colecionável + Experiência Digital</div>
-                    <h1 class="main-font font-weight-bold text-white">SPACE-IT: o tabuleiro que une <span class="gradient-text">lore cinematográfico</span>, colecionáveis premium.</h1>
-                    <p class="text-white">Conquiste a esperança perdida das colônias, com cartas, veículos espaciais e tabuleiros modulados.</p>
-                    <a href="#packs" class="btn btn-medium btn-rounded btn-yellow mt-3">Ver Packs Masters</a>
-                    <a href="#universo" class="btn btn-medium btn-rounded btn-transparent mt-3 ml-3">Conhecer o Universo</a>
+<!-- Banner / Hero -->
+<section class="p-0 banner" id="home-banner">
+    <div class="slider-area" id="slider-area">
+        <div class="bg-overlay bg-black opacity-6"></div>
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="heading-area text-center text-lg-left">
+                        <span class="text-yellow d-block mb-3 wow fadeInUp" data-wow-delay="0.3s">JOGO COLECIONÁVEL + EXPERIÊNCIA DIGITAL</span>
+                        <h1 class="main-font font-weight-bold text-white wow fadeInUp" data-wow-delay="0.6s">
+                            SPACE-IT: o tabuleiro que une <span class="gradient-text">lore cinematográfico</span>
+                        </h1>
+                        <p class="text-white mt-4 wow fadeInUp" data-wow-delay="0.9s">
+                            Conquiste a esperança perdida das colônias, com cartas, veículos espaciais e tabuleiros modulados. Quatro Masters lendários aguardam seu comando.
+                        </p>
+                        <div class="mt-5 wow fadeInUp" data-wow-delay="1.2s">
+                            <a href="#packs" class="btn btn-medium btn-rounded btn-yellow text-capitalize">Ver Packs Masters<span></span></a>
+                            <a href="#universo" class="btn btn-medium btn-rounded btn-transparent text-white ml-3">Conhecer Universo</a>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="col-lg-6 text-center">
-                <img src="assets/img/space-it-4.png" alt="SPACE-IT" class="hero-image" style="max-width:100%;">
+                <div class="col-lg-6 text-center mt-5 mt-lg-0">
+                    <img src="dark-creative/assets/img/caixa.png" alt="SPACE-IT Box" class="img-fluid wow fadeInRight" data-wow-delay="1s" style="max-width: 500px;">
+                </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- UNIVERSO - FLIP CARDS -->
-<section id="universo" class="about overflow-hidden py-5">
+<!-- Universo - As 4 Hopes -->
+<section class="about overflow-hidden" id="universo">
     <div class="container">
-        <div class="text-center mb-5">
-            <span class="section-tag">HOPE</span>
-            <h2 class="heading">As quatro últimas esperanças da civilização</h2>
-            <p>O colapso das estrelas criou quatro Masters lendários.</p>
+        <div class="row text-center mb-5">
+            <div class="col-12">
+                <span class="sub-heading text-yellow wow fadeInUp">HOPE</span>
+                <h2 class="heading mt-3 wow fadeInUp">As quatro últimas esperanças da civilização</h2>
+                <p class="text-white-50 wow fadeInUp">O colapso das estrelas criou quatro Masters lendários. Cada peça física do jogo representa um desses arcos narrativos épicos.</p>
+            </div>
         </div>
         <div class="row">
             <!-- Aurum Magnus -->
-            <div class="col-lg-3 col-md-6 mb-4 flip-card" onclick="this.classList.toggle('flipped')">
-                <div class="flip-card-inner">
-                    <div class="flip-card-front">
-                        <img src="assets/img/apresenta-aurum.png" alt="Aurum Magnus" style="width:100%;height:100%;object-fit:cover;">
-                        <div class="card-overlay"><h3>Aurum Magnus</h3><span class="hope-tag hope-dourada">Hope Dourada</span></div>
-                    </div>
-                    <div class="flip-card-back">
-                        <div class="back-content">
-                            <h3>Aurum Magnus</h3>
-                            <p>Quando a última estrela morreu, ele nasceu. O ouro que ainda brilha quando tudo escurece.</p>
-                            <ul><li>Nascimento da Luz</li><li>Primeira Hope Dourada</li><li>Guardião Eterno</li></ul>
-                            <button class="btn btn-secondary btn-small" onclick="event.stopImmediatePropagation();this.closest('.flip-card').classList.remove('flipped')">VOLTAR</button>
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="flip-card wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="dark-creative/assets/img/apresenta-aurum.png" alt="Aurum Magnus" style="width:100%;height:100%;object-fit:cover;">
+                            <div class="position-absolute bottom-0 w-100 p-3" style="background: linear-gradient(transparent, rgba(0,0,0,0.9));">
+                                <h4 class="text-white mb-1">Aurum Magnus</h4>
+                                <span class="hope-dourada" style="font-size:0.85rem;">Hope Dourada</span>
+                            </div>
+                        </div>
+                        <div class="flip-card-back">
+                            <h3>Aurum</h3>
+                            <p class="text-white-50">Quando a última estrela morreu, ele nasceu. O ouro que ainda brilha quando tudo escurece.</p>
+                            <ul>
+                                <li>Nascimento da Luz</li>
+                                <li>Primeira Hope Dourada</li>
+                                <li>Guardião Eterno</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
             </div>
             <!-- Agente Sete -->
-            <div class="col-lg-3 col-md-6 mb-4 flip-card" onclick="this.classList.toggle('flipped')">
-                <div class="flip-card-inner">
-                    <div class="flip-card-front">
-                        <img src="assets/img/agente-sete-4.png" alt="Agente Sete" style="width:100%;height:100%;object-fit:cover;">
-                        <div class="card-overlay"><h3>Agente Sete</h3><span class="hope-tag hope-esverdeada">Hope Esverdeada</span></div>
-                    </div>
-                    <div class="flip-card-back">
-                        <div class="back-content">
-                            <h3>Agente Sete</h3>
-                            <p>Antigo Orquestrador Openclaw. A IA que escolheu a vida.</p>
-                            <ul><li>Rede de suprimentos viva</li><li>Frota Verde</li><li>Orquestrador de Futuros</li></ul>
-                            <button class="btn btn-secondary btn-small" onclick="event.stopImmediatePropagation();this.closest('.flip-card').classList.remove('flipped')">VOLTAR</button>
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="flip-card wow fadeInUp" data-wow-delay="0.4s">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="dark-creative/assets/img/agente-sete-4.png" alt="Agente Sete" style="width:100%;height:100%;object-fit:cover;">
+                            <div class="position-absolute bottom-0 w-100 p-3" style="background: linear-gradient(transparent, rgba(0,0,0,0.9));">
+                                <h4 class="text-white mb-1">Agente Sete</h4>
+                                <span class="hope-esverdeada" style="font-size:0.85rem;">Hope Esverdeada</span>
+                            </div>
+                        </div>
+                        <div class="flip-card-back">
+                            <h3 style="color:#22c55e;">Agente Sete</h3>
+                            <p class="text-white-50">Antigo Orquestrador Openclaw. A IA que escolheu a vida.</p>
+                            <ul>
+                                <li>Rede de suprimentos viva</li>
+                                <li>Frota Verde</li>
+                                <li>Orquestrador de Futuros</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
             </div>
             <!-- Brian T. -->
-            <div class="col-lg-3 col-md-6 mb-4 flip-card" onclick="this.classList.toggle('flipped')">
-                <div class="flip-card-inner">
-                    <div class="flip-card-front">
-                        <img src="assets/img/apresenta-brian.png" alt="Brian T." style="width:100%;height:100%;object-fit:cover;">
-                        <div class="card-overlay"><h3>Brian T.</h3><span class="hope-tag hope-preto">Hope Preto Fosco</span></div>
-                    </div>
-                    <div class="flip-card-back">
-                        <div class="back-content">
-                            <h3>Brian T.</h3>
-                            <p>O homem que morreu duas vezes e voltou com a escuridão.</p>
-                            <ul><li>Reino das Sombras</li><li>Estratégia do Vazio</li><li>Obscurus Rex</li></ul>
-                            <button class="btn btn-secondary btn-small" onclick="event.stopImmediatePropagation();this.closest('.flip-card').classList.remove('flipped')">VOLTAR</button>
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="flip-card wow fadeInUp" data-wow-delay="0.6s">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="dark-creative/assets/img/apresenta-brian.png" alt="Brian T." style="width:100%;height:100%;object-fit:cover;">
+                            <div class="position-absolute bottom-0 w-100 p-3" style="background: linear-gradient(transparent, rgba(0,0,0,0.9));">
+                                <h4 class="text-white mb-1">Brian T.</h4>
+                                <span class="hope-preto" style="font-size:0.85rem;">Hope Preto Fosco</span>
+                            </div>
+                        </div>
+                        <div class="flip-card-back">
+                            <h3 style="color:#94a3b8;">Brian T.</h3>
+                            <p class="text-white-50">O homem que morreu duas vezes e voltou com a escuridão. Mestre da Hope Preto Fosco.</p>
+                            <ul>
+                                <li>Reino das Sombras</li>
+                                <li>Estratégia do Vazio</li>
+                                <li>Obscurus Rex</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
             </div>
             <!-- Major Capyborg -->
-            <div class="col-lg-3 col-md-6 mb-4 flip-card" onclick="this.classList.toggle('flipped')">
-                <div class="flip-card-inner">
-                    <div class="flip-card-front">
-                        <img src="assets/img/apresenta-capyborg.png" alt="Major Capyborg" style="width:100%;height:100%;object-fit:cover;">
-                        <div class="card-overlay"><h3>Major Capyborg</h3><span class="hope-tag hope-prateada">Hope Prateada</span></div>
-                    </div>
-                    <div class="flip-card-back">
-                        <div class="back-content">
-                            <h3>Major Capyborg</h3>
-                            <p>68% ciborgue, coração de soldado.</p>
-                            <ul><li>Rebelião Silenciosa</li><li>Forças de Resgate</li><li>Líder Inquebrável</li></ul>
-                            <button class="btn btn-secondary btn-small" onclick="event.stopImmediatePropagation();this.closest('.flip-card').classList.remove('flipped')">VOLTAR</button>
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="flip-card wow fadeInUp" data-wow-delay="0.8s">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="dark-creative/assets/img/apresenta-capyborg.png" alt="Major Capyborg" style="width:100%;height:100%;object-fit:cover;">
+                            <div class="position-absolute bottom-0 w-100 p-3" style="background: linear-gradient(transparent, rgba(0,0,0,0.9));">
+                                <h4 class="text-white mb-1">Major Capyborg</h4>
+                                <span class="hope-prateada" style="font-size:0.85rem;">Hope Prateada</span>
+                            </div>
+                        </div>
+                        <div class="flip-card-back">
+                            <h3 style="color:#e2e8f0;">Major Capyborg</h3>
+                            <p class="text-white-50">68% ciborgue, coração de soldado. Das entranhas da Hope Prateada nasceu o maior resgate da história.</p>
+                            <ul>
+                                <li>Rebelião Silenciosa</li>
+                                <li>Forças de Resgate</li>
+                                <li>Líder Inquebrável</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -185,44 +256,297 @@
     </div>
 </section>
 
-<!-- COLONIZADORES -->
-<section id="colonizadores" class="portfolio bg-black py-5">
+<!-- Colonizadores - Miniaturas -->
+<section class="position-relative team-sec bg-black" id="colonizadores">
     <div class="container">
-        <div class="text-center mb-5">
-            <span class="section-tag">COLONIZADORES</span>
-            <h2 class="heading">Miniaturas e cartas que carregam a alma do jogo</h2>
+        <div class="row text-center mb-5">
+            <div class="col-12">
+                <span class="sub-heading text-yellow wow fadeInUp">COLONIZADORES</span>
+                <h2 class="heading text-white mt-3 wow fadeInUp">Miniaturas e cartas que carregam a alma do jogo</h2>
+                <p class="text-white-50 wow fadeInUp">As miniaturas oficiais estão prontas para colecionadores. Cada uma carrega o espírito do seu Master lendário.</p>
+            </div>
         </div>
         <div class="row">
-            <div class="col-lg-3 col-md-6 mb-4">
-                <div class="portfolio-card">
-                    <img src="assets/img/space-it-colonizadores/hope black.png" alt="Hope Black" style="width:100%;height:250px;object-fit:cover;">
-                    <div class="portfolio-info p-4"><span class="portfolio-tag">Hope Black</span><h3>Brian T.</h3><p>Estratégia das sombras</p></div>
+            <!-- Hope Black -->
+            <div class="col-lg-3 col-md-6 mb-4 wow fadeInUp" data-wow-delay="0.2s">
+                <div class="team-image">
+                    <img src="dark-creative/assets/img/space-it-colonizadores/hope-black.png" alt="Hope Black">
+                </div>
+                <div class="team-classic-content hvr-team yellow mt-3">
+                    <h3 class="mb-2 text-white">Hope Black</h3>
+                    <h5 class="mb-3 hope-preto">Brian T.</h5>
+                    <p class="text-white-50">Estratégia das sombras. Peças fosco premium e poder do vazio.</p>
                 </div>
             </div>
-            <!-- Repita os outros 3 cards da mesma forma -->
+            <!-- Hope Dourada -->
+            <div class="col-lg-3 col-md-6 mb-4 wow fadeInUp" data-wow-delay="0.4s">
+                <div class="team-image">
+                    <img src="dark-creative/assets/img/space-it-colonizadores/hope-dourada.png" alt="Hope Dourada">
+                </div>
+                <div class="team-classic-content hvr-team yellow mt-3">
+                    <h3 class="mb-2 text-white">Hope Dourada</h3>
+                    <h5 class="mb-3 hope-dourada">Aurum Magnus</h5>
+                    <p class="text-white-50">Miniaturas com pintura metálico dourado. O farol da civilização.</p>
+                </div>
+            </div>
+            <!-- Hope Green -->
+            <div class="col-lg-3 col-md-6 mb-4 wow fadeInUp" data-wow-delay="0.6s">
+                <div class="team-image">
+                    <img src="dark-creative/assets/img/space-it-colonizadores/hope-green.png" alt="Hope Green">
+                </div>
+                <div class="team-classic-content hvr-team yellow mt-3">
+                    <h3 class="mb-2 text-white">Hope Green</h3>
+                    <h5 class="mb-3 hope-esverdeada">Agente Sete</h5>
+                    <p class="text-white-50">Orquestração e logística espacial. Drones, suporte e cálculo tático.</p>
+                </div>
+            </div>
+            <!-- Hope Silver -->
+            <div class="col-lg-3 col-md-6 mb-4 wow fadeInUp" data-wow-delay="0.8s">
+                <div class="team-image">
+                    <img src="dark-creative/assets/img/space-it-colonizadores/hope-silver.png" alt="Hope Silver">
+                </div>
+                <div class="team-classic-content hvr-team yellow mt-3">
+                    <h3 class="mb-2 text-white">Hope Silver</h3>
+                    <h5 class="mb-3 hope-prateada">Major Capyborg</h5>
+                    <p class="text-white-50">Do campo de batalha para a salvação. Miniaturas prateadas metálicas.</p>
+                </div>
+            </div>
         </div>
     </div>
 </section>
 
-<!-- TABULEIROS, PACKS, CONTATO e FOOTER seguem o mesmo padrão do template MegaOne -->
-<!-- (se precisar de mais ajustes, é só falar) -->
+<!-- Tabuleiros -->
+<section class="cube-portfolio1 bg-black pb-0" id="tabuleiros">
+    <div class="container">
+        <div class="row text-center mb-5">
+            <div class="col-12">
+                <span class="sub-heading text-yellow wow fadeInUp">TABULEIROS</span>
+                <h2 class="heading text-white mt-3 wow fadeInUp">Arena modular SPACE-IT</h2>
+                <p class="text-white-50 wow fadeInUp">Layouts horizontais e verticais para diferentes estilos de jogo.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 mb-4 wow fadeInLeft">
+                <div class="pack-card">
+                    <img src="dark-creative/assets/img/space-it-tabuleiro-horizontal/1.png" alt="Tabuleiro Horizontal">
+                    <div class="content">
+                        <h4>Tabuleiro Horizontal</h4>
+                        <p class="text-white-50">Ideal para mesas longas. Inclui trilhas de energia e área de decks Masters.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 mb-4 wow fadeInRight">
+                <div class="pack-card">
+                    <img src="dark-creative/assets/img/space-it-tabuleiros-vertical/1.png" alt="Tabuleiro Vertical">
+                    <div class="content">
+                        <h4>Tabuleiro Vertical</h4>
+                        <p class="text-white-50">Experiência para mesas menores, com posicionamento em camadas.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Counter -->
+<section class="counter bg-black py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-12 col-md-6 wow slideInLeft">
+                <h3 class="text-white my-3">Números que mostram nossa <span class="text-yellow">jornada</span></h3>
+                <p class="text-white-50">SPACE-IT nasceu da paixão por jogos, lore cinematográfico e colecionáveis premium.</p>
+            </div>
+            <div class="col-12 col-md-6 text-center wow slideInRight">
+                <div class="row">
+                    <div class="col-4">
+                        <div class="parallax-box">
+                            <i class="lni lni-star text-yellow"></i>
+                            <h2 class="count text-white">4</h2>
+                            <h5 class="text-white-50">Masters</h5>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="parallax-box">
+                            <i class="lni lni-inbox text-yellow"></i>
+                            <h2 class="count text-white">4</h2>
+                            <h5 class="text-white-50">Packs</h5>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="parallax-box">
+                            <i class="lni lni-users text-yellow"></i>
+                            <h2 class="count text-white">∞</h2>
+                            <h5 class="text-white-50">Possibilidades</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Packs Masters -->
+<section class="pricing bg-black" id="packs">
+    <div class="container">
+        <div class="row text-center mb-5">
+            <div class="col-12">
+                <span class="sub-heading text-yellow wow fadeInUp">PACKS MASTERS</span>
+                <h2 class="heading text-white mt-3 wow fadeInUp">Escolha sua Hope</h2>
+                <p class="text-white-50 wow fadeInUp">Cada pack inclui produto físico + experiência digital.</p>
+            </div>
+        </div>
+        <div class="row">
+            <!-- Pack Black -->
+            <div class="col-lg-3 col-md-6 mb-4 wow fadeInUp" data-wow-delay="0.2s">
+                <div class="pack-card">
+                    <img src="dark-creative/assets/img/pack/pack-black.png" alt="Pack Hope Black">
+                    <div class="content">
+                        <h4>Pack Hope Black</h4>
+                        <ul>
+                            <li>Caixa SPACE-IT + tabuleiro</li>
+                            <li>Deck Hope Black + Veículos stealth</li>
+                            <li>Miniaturas fosco premium</li>
+                        </ul>
+                        <div class="price-tag">R$ 270,00</div>
+                        <a href="https://wa.me/5554981432889?text=Quero%20reservar%20o%20Pack%20Hope%20Black" class="btn btn-medium btn-rounded btn-yellow w-100">Reservar</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Pack Dourada -->
+            <div class="col-lg-3 col-md-6 mb-4 wow fadeInUp" data-wow-delay="0.4s">
+                <div class="pack-card">
+                    <img src="dark-creative/assets/img/pack/pack-dourada.png" alt="Pack Hope Dourada">
+                    <div class="content">
+                        <h4>Pack Hope Dourada</h4>
+                        <ul>
+                            <li>Cartas Aureum + miniaturas metálicas</li>
+                            <li>Lore impresso e artbook</li>
+                            <li>Tabuleiro exclusivo</li>
+                        </ul>
+                        <div class="price-tag">R$ 270,00</div>
+                        <a href="https://wa.me/5554981432889?text=Quero%20reservar%20o%20Pack%20Hope%20Dourada" class="btn btn-medium btn-rounded btn-yellow w-100">Reservar</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Pack Green -->
+            <div class="col-lg-3 col-md-6 mb-4 wow fadeInUp" data-wow-delay="0.6s">
+                <div class="pack-card" style="border-color: #22c55e;">
+                    <span class="badge badge-success position-absolute" style="top:10px;right:10px;">EDIÇÃO LIMITADA</span>
+                    <img src="dark-creative/assets/img/pack/pack-green.png" alt="Pack Hope Green">
+                    <div class="content">
+                        <h4>Pack Hope Green</h4>
+                        <ul>
+                            <li>Drones + satélites colecionáveis</li>
+                            <li>Tabuleiro vertical + tokens</li>
+                            <li>Cartas holográficas</li>
+                        </ul>
+                        <div class="price-tag">R$ 470,00</div>
+                        <a href="https://wa.me/5554981432889?text=Quero%20reservar%20o%20Pack%20Hope%20Green" class="btn btn-medium btn-rounded btn-yellow w-100">Reservar</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Pack Silver -->
+            <div class="col-lg-3 col-md-6 mb-4 wow fadeInUp" data-wow-delay="0.8s">
+                <div class="pack-card">
+                    <img src="dark-creative/assets/img/Pack/pack-silver.png" alt="Pack Hope Silver">
+                    <div class="content">
+                        <h4>Pack Hope Silver</h4>
+                        <ul>
+                            <li>Deck de suporte + cartas holográficas</li>
+                            <li>Veículos de evacuação</li>
+                            <li>Miniaturas prateadas</li>
+                        </ul>
+                        <div class="price-tag">R$ 270,00</div>
+                        <a href="https://wa.me/5554981432889?text=Quero%20reservar%20o%20Pack%20Hope%20Silver" class="btn btn-medium btn-rounded btn-yellow w-100">Reservar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contato -->
+<section class="contact-sec" id="contato">
+    <div class="container">
+        <div class="row text-center mb-5">
+            <div class="col-12">
+                <span class="sub-heading text-yellow wow fadeInUp">CONTATO</span>
+                <h2 class="heading text-white mt-3 wow fadeInUp">Pronto para comandar uma Hope?</h2>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="contact-form wow fadeInUp">
+                    <form id="contact-form">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <input type="text" name="name" class="form-control mb-3" placeholder="Seu nome" required>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="email" name="email" class="form-control mb-3" placeholder="Seu email" required>
+                            </div>
+                        </div>
+                        <textarea name="message" class="form-control mb-3" rows="5" placeholder="Qual Hope você quer dominar?" required></textarea>
+                        <button type="submit" class="btn btn-medium btn-rounded btn-yellow w-100">Enviar pelo WhatsApp</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer bg-black py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <img src="dark-creative/assets/img/space-it-logo.png" alt="SPACE-IT" style="height:60px;">
+                <p class="text-white-50 mt-3">Projeto físico + digital criado pela Seckler Digital para a série SPACE-IT.</p>
+            </div>
+            <div class="col-lg-3 mb-4 mb-lg-0">
+                <h5 class="text-yellow mb-3">Navegação</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#universo" class="text-white-50">Universo</a></li>
+                    <li><a href="#colonizadores" class="text-white-50">Colonizadores</a></li>
+                    <li><a href="#packs" class="text-white-50">Packs Masters</a></li>
+                    <li><a href="#contato" class="text-white-50">Contato</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-3">
+                <h5 class="text-yellow mb-3">Contato</h5>
+                <p class="text-white-50 mb-2"><i class="las la-envelope mr-2"></i> seckler.daniel@gmail.com</p>
+                <p class="text-white-50 mb-2"><i class="lab la-whatsapp mr-2"></i> (54) 98143-2889</p>
+                <p class="text-white-50"><i class="las la-map-marker mr-2"></i> Gramado, RS</p>
+            </div>
+        </div>
+        <div class="row mt-5 pt-4 border-top border-secondary">
+            <div class="col-12 text-center">
+                <p class="text-white-50">&copy; 2026 SPACE-IT. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </div>
+</footer>
 
 <!-- Scripts -->
 <script src="vendor/js/bundle.min.js"></script>
+<script src="vendor/js/wow.min.js"></script>
+<script src="vendor/js/jquery.fancybox.min.js"></script>
+<script src="vendor/js/owl.carousel.min.js"></script>
+<script src="vendor/js/jquery.cubeportfolio.min.js"></script>
 <script src="dark-creative/js/script.js"></script>
-
-<!-- Particles + Flip -->
 <script>
-    // Particles (simples e funcional)
-    const canvas = document.getElementById('particles');
-    const ctx = canvas.getContext('2d');
-    let particles = [];
-    function resizeCanvas() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
-    class Particle { constructor(){this.reset();} reset(){this.x=Math.random()*canvas.width;this.y=Math.random()*canvas.height;this.size=Math.random()*2+0.5;this.speedX=(Math.random()-0.5)*0.5;this.speedY=(Math.random()-0.5)*0.5;} update(){this.x+=this.speedX;this.y+=this.speedY;} draw(){ctx.beginPath();ctx.arc(this.x,this.y,this.size,0,Math.PI*2);ctx.fillStyle='rgba(139,92,246,0.6)';ctx.fill();} }
-    function init(){particles=[];for(let i=0;i<80;i++)particles.push(new Particle());}
-    function animate(){ctx.clearRect(0,0,canvas.width,canvas.height);particles.forEach(p=>{p.update();p.draw();});requestAnimationFrame(animate);}
-    resizeCanvas(); init(); animate(); window.addEventListener('resize',()=>{resizeCanvas();init();});
-    console.log('%c🚀 SPACE-IT MegaOne Dark Creative carregado!', 'color:#8b5cf6;font-size:16px;font-weight:bold');
+    // Form WhatsApp
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const name = this.name.value;
+        const email = this.email.value;
+        const message = this.message.value;
+        const text = `🚀 *Nova mensagem SPACE-IT*%0A%0A👤 *Nome:* ${name}%0A📧 *Email:* ${email}%0A💬 *Mensagem:* ${message}`;
+        window.open('https://wa.me/5554981432889?text=' + text, '_blank');
+    });
+    
+    // Init WOW
+    new WOW().init();
 </script>
 </body>
 </html>

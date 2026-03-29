@@ -149,14 +149,24 @@
                         <a href="#"><img src="dark-creative/assets/img/space-it-logo.png" alt="SPACE-IT" class="logo-img"></a>
                     </div>
                 </div>
-                <div class="col-sm-12 col-md-4 col-lg-4 text-right">
-                    <div class="banner-icons mt-2 mr-2">
-                        <a href="https://instagram.com/secklerdigital" target="_blank" rel="noopener noreferrer">
-                        <i class="lab la-instagram"></i>
-                        </a>
-                        <a href="https://wa.me/5554981432889"><i class="lab la-whatsapp"></i></a>
-                    </div>
-                </div>
+                <div class="col-sm-12 col-md-4 col-lg-4 text-right d-flex align-items-center justify-content-end">
+
+    <div class="banner-icons mt-2 mr-2">
+        <a href="https://instagram.com/secklerdigital" target="_blank">
+            <i class="lab la-instagram"></i>
+        </a>
+        <a href="https://wa.me/5554981432889">
+            <i class="lab la-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- Idioma -->
+    <div style="margin-left:15px;">
+        <button onclick="setLanguage('pt')" class="lang-btn">PT</button>
+<button onclick="setLanguage('en')" class="lang-btn">EN</button>n>
+    </div>
+
+</div>
             </div>
         </div>
     </div>
@@ -1095,6 +1105,31 @@
         });
     }
 </script>
+
+<script src="dark-creative/js/content.js"></script>
+
+<script src="dark-creative/js/lang/pt.js"></script>
+<script src="dark-creative/js/lang/en.js"></script>
+
+<script>
+let currentLang = LANG_PT;
+
+function setLanguage(lang) {
+    currentLang = lang === 'en' ? LANG_EN : LANG_PT;
+
+    document.getElementById("hero-title").innerText = currentLang.hero.title;
+    document.getElementById("hero-desc").innerText = currentLang.hero.description;
+    document.getElementById("hero-cta").innerText = currentLang.hero.cta;
+
+    document.getElementById("agentes-title").innerText = currentLang.agentes.title;
+    document.getElementById("agentes-desc").innerText = currentLang.agentes.description;
+    document.getElementById("agentes-cta").innerText = currentLang.agentes.cta;
+}
+
+// default
+setLanguage('pt');
+</script>
+
 </body>
 </html>
 

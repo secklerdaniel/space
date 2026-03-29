@@ -929,27 +929,30 @@
 
 <script>
     const video = document.getElementById('trailerVideo');
-const poster = document.getElementById('videoPoster');
-
-if (video) {
-    video.addEventListener('canplay', () => {
-        poster.style.display = 'none';
-        video.style.opacity = '1';
-        video.style.filter = 'blur(0px)';
-    });
-}
-</script>
-
-<script>
-    const video = document.getElementById('trailerVideo');
+    const poster = document.getElementById('videoPoster');
     const btn = document.getElementById('unmuteBtn');
 
-    if (video && btn) {
-        btn.addEventListener('click', () => {
-            video.muted = false;
-            video.play();
-            btn.style.display = 'none';
+    if (video) {
+
+        // Quando o vídeo estiver pronto
+        video.addEventListener('canplay', () => {
+            if (poster) poster.style.display = 'none';
+            video.style.opacity = '1';
+            video.style.filter = 'blur(0px)';
         });
+
+        // Ativar som no clique
+        if (btn) {
+            btn.addEventListener('click', () => {
+                video.muted = false;
+                video.currentTime = 0;
+                video.play().then(() => {
+                    btn.style.display = 'none';
+                }).catch(err => {
+                    console.log("Erro ao ativar som:", err);
+                });
+            });
+        }
     }
 </script>
 

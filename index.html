@@ -50,7 +50,7 @@
 <div class="loader">
     <div class="container">
         <div class="row justify-content-center align-items-center" style="height:100vh;">
-            <div class="text-center">
+            <div class="text-center" style="width:100%;">
                
                 <img id="videoPoster"
                     src="dark-creative/assets/img/masters-1.png"
@@ -63,7 +63,17 @@
                     playsinline 
                     loop 
                     preload="auto"
-                    style="max-height:350px; width:auto; border-radius:12px; box-shadow: 0 20px 60px rgba(0,0,0,0.6);"
+                    style="
+                        width: 100%;
+                        max-width: 420px;
+                        height: 70vh;
+                        object-fit: cover;
+                        border-radius: 12px;
+                        box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+                        opacity: 0;
+                        filter: blur(10px);
+                        transition: opacity 0.8s ease, filter 0.8s ease;
+                    "
                 >
                     <source src="dark-creative/assets/video/capita_mercenario.mp4" type="video/mp4">
                     Seu navegador não suporta vídeo.

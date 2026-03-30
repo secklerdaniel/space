@@ -1092,7 +1092,7 @@
         });
     }
 
-    window.setLanguage = function(lang) {
+    window.setLanguageFromIIFE = function(lang) {
         const langCode = LANG_SOURCES[lang] ? lang : 'pt';
         applyLanguage(langCode);
         localStorage.setItem('spaceItLang', langCode);
@@ -1104,60 +1104,6 @@
 </script>
 
 <script>
-function applyLanguage(langData) {
-
-    function set(id, value) {
-        const el = document.getElementById(id);
-        if (el && value) el.innerHTML = value;
-    }
-
-    function setInput(id, value) {
-        const el = document.getElementById(id);
-        if (el && value) el.placeholder = value;
-    }
-
-    // CONTATO
-    set("contact-title", langData.contato.sectionTitle);
-    set("contact-cta", langData.contato.cta);
-
-    setInput("contact-name-input", langData.contato.placeholders.name);
-    setInput("contact-email-input", langData.contato.placeholders.email);
-    setInput("contact-message-textarea", langData.contato.placeholders.message);
-
-    // LEGADO
-    set("legacy-title", langData.legacy.title);
-
-    set("legacy-p1", `${langData.legacy.paragraph1.prefix} <span class="highlight">${langData.legacy.paragraph1.highlight}</span> ${langData.legacy.paragraph1.suffix}`);
-    set("legacy-p2", langData.legacy.paragraph2);
-    set("legacy-p3", langData.legacy.paragraph3);
-    set("legacy-p4", langData.legacy.paragraph4);
-    set("legacy-p5", langData.legacy.paragraph5);
-
-    set("legacy-p6", `${langData.legacy.paragraph6.prefix} <span class="highlight">${langData.legacy.paragraph6.highlight}</span> ${langData.legacy.paragraph6.suffix}`);
-
-    set("legacy-p7", langData.legacy.paragraph7);
-    set("legacy-p8", langData.legacy.paragraph8);
-    set("legacy-p9", langData.legacy.paragraph9);
-
-    // AGENTES
-    set("agents-title", langData.agentes.headline);
-    set("agents-desc", langData.agentes.description);
-    set("agents-proof", langData.agentes.socialProof);
-    set("agents-cta", langData.agentes.cta);
-    set("agents-sub", langData.agentes.subtext);
-
-    // FOOTER
-    set("footer-about", langData.footer.about);
-    set("footer-nav-title", langData.footer.navigationTitle);
-    set("footer-contact-title", langData.footer.contactTitle);
-
-    set("footer-email", langData.footer.contact.email);
-    set("footer-whatsapp", langData.footer.contact.whatsapp);
-    set("footer-city", langData.footer.contact.city);
-
-    set("footer-rights", langData.footer.rights);
-}
-
 // Função auxiliar para aplicar idioma nos elementos extras
 function applyLanguageExtra(langData) {
 
@@ -1213,10 +1159,18 @@ function applyLanguageExtra(langData) {
     set("footer-rights", langData.footer.rights);
 }
 
-// TROCA DE IDIOMA
+// TROCA DE IDIOMA - função global chamada pelos botões
 function setLanguage(lang) {
     const langData = lang === 'en' ? LANG_EN : lang === 'zh' ? LANG_ZH : LANG_PT;
+    
+    // Atualiza elementos extras (legacy, agentes, footer)
     applyLanguageExtra(langData);
+    
+    // Atualiza elementos lang-text-XXX (chama função do IIFE)
+    if (window.setLanguageFromIIFE) {
+        window.setLanguageFromIIFE(lang);
+    }
+    
     localStorage.setItem('lang', lang);
 }
 

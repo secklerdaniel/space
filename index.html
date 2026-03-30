@@ -1158,19 +1158,71 @@ function applyLanguage(langData) {
     set("footer-rights", langData.footer.rights);
 }
 
+// Função auxiliar para aplicar idioma nos elementos extras
+function applyLanguageExtra(langData) {
+
+    function set(id, value) {
+        const el = document.getElementById(id);
+        if (el && value) el.innerHTML = value;
+    }
+
+    function setInput(id, value) {
+        const el = document.getElementById(id);
+        if (el && value) el.placeholder = value;
+    }
+
+    // CONTATO
+    set("contact-title", langData.contato.sectionTitle);
+    set("contact-cta", langData.contato.cta);
+
+    setInput("contact-name-input", langData.contato.placeholders.name);
+    setInput("contact-email-input", langData.contato.placeholders.email);
+    setInput("contact-message-textarea", langData.contato.placeholders.message);
+
+    // LEGADO
+    set("legacy-title", langData.legacy.title);
+
+    set("legacy-p1", `${langData.legacy.paragraph1.prefix} <span class="highlight">${langData.legacy.paragraph1.highlight}</span> ${langData.legacy.paragraph1.suffix}`);
+    set("legacy-p2", langData.legacy.paragraph2);
+    set("legacy-p3", langData.legacy.paragraph3);
+    set("legacy-p4", langData.legacy.paragraph4);
+    set("legacy-p5", langData.legacy.paragraph5);
+
+    set("legacy-p6", `${langData.legacy.paragraph6.prefix} <span class="highlight">${langData.legacy.paragraph6.highlight}</span> ${langData.legacy.paragraph6.suffix}`);
+
+    set("legacy-p7", langData.legacy.paragraph7);
+    set("legacy-p8", langData.legacy.paragraph8);
+    set("legacy-p9", langData.legacy.paragraph9);
+
+    // AGENTES
+    set("agents-title", langData.agentes.headline);
+    set("agents-desc", langData.agentes.description);
+    set("agents-proof", langData.agentes.socialProof);
+    set("agents-cta", langData.agentes.cta);
+    set("agents-sub", langData.agentes.subtext);
+
+    // FOOTER
+    set("footer-about", langData.footer.about);
+    set("footer-nav-title", langData.footer.navigationTitle);
+    set("footer-contact-title", langData.footer.contactTitle);
+
+    set("footer-email", langData.footer.contact.email);
+    set("footer-whatsapp", langData.footer.contact.whatsapp);
+    set("footer-city", langData.footer.contact.city);
+
+    set("footer-rights", langData.footer.rights);
+}
+
 // TROCA DE IDIOMA
 function setLanguage(lang) {
-    let data;
-    if (lang === 'en') data = LANG_EN;
-    else if (lang === 'zh') data = LANG_ZH;
-    else data = LANG_PT;
-    applyLanguage(data);
+    const langData = lang === 'en' ? LANG_EN : lang === 'zh' ? LANG_ZH : LANG_PT;
+    applyLanguageExtra(langData);
     localStorage.setItem('lang', lang);
 }
 
 // INIT
 document.addEventListener("DOMContentLoaded", () => {
-    const savedLang = localStorage.getItem('lang') || 'pt';
+    const savedLang = localStorage.getItem('spaceItLang') || localStorage.getItem('lang') || 'pt';
     setLanguage(savedLang);
 });
 </script>

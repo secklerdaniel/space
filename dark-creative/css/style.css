@@ -2827,3 +2827,27 @@ img {
     }
 
 }
+
+.lang-btn {
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.3);
+    color: white;
+    padding: 5px 8px;
+    margin-left: 5px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.lang-btn:hover {
+    background: rgba(255,255,255,0.2);
+}
+
+@media (max-width: 768px) {
+
+    .lang-btn {
+        padding: 4px 6px;
+        font-size: 12px;
+    }
+
+}
